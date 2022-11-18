@@ -7,7 +7,8 @@ import { cartData } from '../data/dummy';
 import { Button } from '.';
 
 const Cart = () => {
-	const { currentColor } = useStateContext();
+	const { currentColor, resetHandleClick, isClicked } = useStateContext();
+	console.log(isClicked);
 
 	return (
 		<div className='bg-half-transparent w-full fixed nav-item top-0 right-0 '>
@@ -16,10 +17,11 @@ const Cart = () => {
 					<p className='font-semibold text-lg'>Shopping Cart</p>
 					<Button
 						icon={<MdOutlineCancel />}
-						color='rgb(153, 171, 180)'
-						bgHoverColor='light-gray'
+						color='white'
+						bgColor={currentColor}
 						size='2xl'
 						borderRadius='50%'
+						onclick={resetHandleClick}
 					/>
 				</div>
 				{cartData?.map((item, index) => (

@@ -385,7 +385,7 @@ export const FinancialPrimaryXAxis = {
 };
 
 export const FinancialPrimaryYAxis = {
-	title: 'Price', 
+	title: 'Price',
 	minimum: 100,
 	maximum: 180,
 	interval: 20,
@@ -2939,7 +2939,7 @@ export const lineChartData = [
 		{ x: new Date(2018, 0, 1), y: 30 },
 		{ x: new Date(2019, 0, 1), y: 39 },
 		{ x: new Date(2020, 0, 1), y: 50 },
-		{ x: new Date(2020, 0, 1), y: 70 },
+		{ x: new Date(2021, 0, 1), y: 70 },
 		{ x: new Date(2022, 0, 1), y: 100 },
 	],
 ];

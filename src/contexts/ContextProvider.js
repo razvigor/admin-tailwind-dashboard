@@ -31,6 +31,9 @@ export const ContextProvider = ({ children }) => {
 	const handleClick = (clicked) => {
 		setIsClicked({ ...initialState, [clicked]: true });
 	};
+	const resetHandleClick = () => {
+		setIsClicked({...initialState});
+	};
 	return (
 		<StateContext.Provider
 			value={{
@@ -47,6 +50,7 @@ export const ContextProvider = ({ children }) => {
 				setColor,
 				themeSettings,
 				setThemeSettings,
+				resetHandleClick,
 			}}
 		>
 			{children}
