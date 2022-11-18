@@ -31,7 +31,7 @@ const Sidebar = () => {
 							onClick={handleCloseSideBar}
 							className='items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900'
 						>
-							<SiShopware className='text-3xl' /> <span>Shoppy</span>
+							<SiShopware className='text-3xl' /> <span>My Company</span>
 						</Link>
 						<TooltipComponent content='Menu' position='BottomCenter'>
 							<button
@@ -51,7 +51,7 @@ const Sidebar = () => {
 								<p className='text-gray-400 m-3 mt-4 uppercase'>{item.title}</p>
 								{item.links.map((link) => (
 									<NavLink
-										to={`/${link.name}`}
+										to={`${link.name}`}
 										key={link.name}
 										onClick={handleCloseSideBar}
 										style={({ isActive }) => ({
