@@ -18,19 +18,21 @@ import {
 	ColorMapping,
 	Editor,
 	Financial,
+	Login,
 } from './pages';
 import { useStateContext } from './contexts/ContextProvider';
 
 import './App.css';
 
 function App() {
-	const { currentMode } = useStateContext();
+	const { currentMode, logedIn } = useStateContext();
+	console.log(logedIn);
 
 	return (
 		<div className={currentMode === 'Light' ? 'light' : 'dark'}>
 			<BrowserRouter>
 				<Routes>
-					<Route path='/' element={<Layout />}>
+					<Route path='/' element={logedIn ? <Layout /> : <Login />}>
 						<Route index element={<Ecommerce />} />
 						<Route path='ecommerce' element={<Ecommerce />} />
 						{/* Pages */}

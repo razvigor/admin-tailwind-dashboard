@@ -10,12 +10,23 @@ const initialState = {
 };
 
 export const ContextProvider = ({ children }) => {
+	const themeFromStorage = localStorage.getItem('themeMode');
+	const colorFromStorage = localStorage.getItem('colorMode');
+	const logedFromStorage = localStorage.getItem('logedIn');
+
 	const [activeMenu, setActiveMenu] = useState(true);
 	const [isClicked, setIsClicked] = useState(initialState);
 	const [screenSize, setScreenSize] = useState(undefined);
-	const [currentColor, setCurrentColor] = useState('#03C9D7');
-	const [currentMode, setCurrentMode] = useState('Light');
+	const [currentColor, setCurrentColor] = useState(
+		colorFromStorage ? colorFromStorage : '#03C9D7'
+	);
+	const [currentMode, setCurrentMode] = useState(
+		themeFromStorage ? themeFromStorage : 'Light'
+	);
 	const [themeSettings, setThemeSettings] = useState(false);
+	const [logedIn, setLogedIn] = useState(
+		logedFromStorage ? logedFromStorage : false
+	);
 
 	const setMode = (mode) => {
 		setCurrentMode(mode.target.value);
@@ -32,7 +43,12 @@ export const ContextProvider = ({ children }) => {
 		setIsClicked({ ...initialState, [clicked]: true });
 	};
 	const resetHandleClick = () => {
-		setIsClicked({...initialState});
+		setIsClicked({ ...initialState });
+	};
+	const logOut = () => {
+		localStorage.removeItem('logedIn');
+		setIsClicked(initialState);
+		setLogedIn(false);
 	};
 	return (
 		<StateContext.Provider
@@ -51,6 +67,9 @@ export const ContextProvider = ({ children }) => {
 				themeSettings,
 				setThemeSettings,
 				resetHandleClick,
+				logedIn,
+				setLogedIn,
+				logOut,
 			}}
 		>
 			{children}
